@@ -12,6 +12,6 @@ tasks = []
 def index():
     if request.method == "POST":
         tasks.append(request.form['task'])
-    return render_template('todos.html', tasks=tasks)
+    return render_template('todos.html',Title = "Get It Done", tasks=tasks)
 
 app.run()

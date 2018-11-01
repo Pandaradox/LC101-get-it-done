@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
         <h1>TODOs</h1>
         <form action="/" method="post">
             <label>
@@ -23,5 +19,4 @@
                 {% endfor %}
         </ul>
         {% endif %}
-    </body>
-</html>
+{% endblock %}
