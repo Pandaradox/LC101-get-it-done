@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+        <form action="/login" method="post">
+            <br><input type="email" name="email" placeholder="Email" value="{{email}}"
+            style="text-transform:uppercase" required>
+            <br><input type="password" name="pass1" placeholder="Codephrase" required>
+            <br><input type="submit" value="Login">
+        </form>
+        <div>New Agents register <a href="/register">here</a></div>
+{% endblock%}

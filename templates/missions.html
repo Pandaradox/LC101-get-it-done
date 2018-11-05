@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+        <h1>>>Mission Log</h1>
+        <div>
+            <a href='/logout'>DISAVOW {{email}}</a>
+        </div>
+        <form action="/" method="post">
+            <label>
+                New Mission:
+                <input type="text" name="mission" autofocus required>
+            </label>
+            <input type="Submit" value="Add Mission">
+        </form>
+        <br>
+        <hr>
+        {% if missions|length == 0 %}
+        <p>No tasks yet</p>
+        {% else %}
+        <ul>
+            {% for item in missions %}
+                <li>{{item.name}}</li>
+                <form action="/delete-mission" method="POST" style="display:inline-block;">
+                    <input type="hidden" name="mission-id" value="{{item.id}}">
+                    <input type="submit" value="Completed!">
+                </form>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <hr>
+        <h1>Missions Completed:</h1>
+        {% if done|length == 0 %}
+        <p>No Completed Missions</p>
+        {% else %}
+            <ul>
+                {% for mission in done %}
+                <li><strike>{{mission.name}}</strike></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <hr>
+{% endblock %}
